@@ -32,20 +32,15 @@ namespace CSharpGameDevFoundation
             BuildGameWindowArray();
         }
 
-        //Creates the size of X[] and Y[], and 
+        
+        /// <summary>
+        /// Creates the size of the X[] and Y[] and builds objectPosition for each location in the array.
+        /// </summary>
         private void BuildGameWindowArray()
         {
             
             Console.SetWindowSize(Width, Height);
-            //set x and y to even numbers if they aren't already
-            //if (X % 2 != 0)
-            //{
-            //   X = X/2;
-            //}
-            //if ( Y % 2 != 0)
-            //{
-            //    Y = Y;
-            //}
+            
             XYGameWindowReference = new Border[Height, Width];
             int xPositives = Height / 2;
             int xNegatives = -(Height / 2);
@@ -89,10 +84,7 @@ namespace CSharpGameDevFoundation
             
         }
 
-        // 0,0 will be the middle of the screen.
-        //popualtes first and last row with ascii
-        //populates the first and last column in each row with ascii
-        //
+       
         /// <summary>
         /// Sets the ascii characters of the border
         /// </summary>
@@ -113,6 +105,9 @@ namespace CSharpGameDevFoundation
             }
 
         }
+        /// <summary>
+        /// Prints the window to the console. Used for testing.
+        /// </summary>
         public void DisplayWindow()
         {
 
