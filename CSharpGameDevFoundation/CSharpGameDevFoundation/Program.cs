@@ -6,11 +6,12 @@ namespace CSharpGameDevFoundation
     {
         static void Main(string[] args)
         {
-            Window window = new Window(50, 50);
+            Window window = new Window();
             window.BorderASCII();
             window.DisplayWindow();
 
             Console.WriteLine("Hello World!");
+            Console.ReadLine();
         }
     }
 }

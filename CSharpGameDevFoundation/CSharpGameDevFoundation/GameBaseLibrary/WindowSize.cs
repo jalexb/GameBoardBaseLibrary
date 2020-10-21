@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography;
 
 namespace CSharpGameDevFoundation
 {
@@ -6,8 +7,8 @@ namespace CSharpGameDevFoundation
     {
         
 
-        private int X { get; set; } = 50;
-        private int Y { get; set; } = 50;
+        private int Height { get; set; } = 15;
+        private int Width { get; set; } = 50;
 
         public Border[,] XYGameWindowReference { get; private set; } //-25, -25 ==> 0,0  25, 25 ==> 49, 49
 
@@ -19,8 +20,8 @@ namespace CSharpGameDevFoundation
         /// </summary>
         public Window(int x, int y)
         {
-            X = x;
-            Y = y;
+            Height = x;
+            Width = y;
             BuildGameWindowArray();
         }
         /// <summary>
@@ -28,54 +29,56 @@ namespace CSharpGameDevFoundation
         /// </summary>
         public Window()
         {
-     
+            BuildGameWindowArray();
         }
 
         //Creates the size of X[] and Y[], and 
         private void BuildGameWindowArray()
         {
+            
+            Console.SetWindowSize(Width, Height);
             //set x and y to even numbers if they aren't already
-            if (X % 2 != 0)
-            {
-                X += 1;
-            }
-            if ( Y % 2 != 0)
-            {
-                Y += 1;
-            }
-            XYGameWindowReference = new Border[X, Y];
-            int xPositives = X / 2;
-            int xNegatives = -(X / 2);
+            //if (X % 2 != 0)
+            //{
+            //   X = X/2;
+            //}
+            //if ( Y % 2 != 0)
+            //{
+            //    Y = Y;
+            //}
+            XYGameWindowReference = new Border[Height, Width];
+            int xPositives = Height / 2;
+            int xNegatives = -(Height / 2);
 
-            int yPositives = Y / 2;
-            int yNegatives = -(Y / 2);
+            int yPositives = Width / 2;
+            int yNegatives = -(Width / 2);
 
-            for( int i = 0; i <= XYGameWindowReference.GetUpperBound(1); i++ ) // i == y
+            for( int i = 0; i <= XYGameWindowReference.GetUpperBound(0); i++ ) // i == x
             {
-                for ( int j = 0; j <= XYGameWindowReference.GetUpperBound(0); j++ ) // j == x
+                for ( int j = 0; j <= XYGameWindowReference.GetUpperBound(1); j++ ) // j == y
                 {
                     Border position;
                     if (i < yPositives)
                     {
                         if(j < xPositives)
                         {
-                            position = new Border(-j, -i);
+                            position = new Border(xNegatives + i, yNegatives + j);
                             
                         }
                         else
                         {
-                            position = new Border(j, -i);
+                            position = new Border(xNegatives + i, yNegatives + j);
                         }
                     }
                     else
                     {
                         if (j > xPositives)
                         {
-                            position = new Border(j, i);
+                            position = new Border(xNegatives + i, yNegatives + j);
                         }
                         else
                         {
-                            position = new Border(-j, i);
+                            position = new Border(xNegatives + i, yNegatives + j);
                         }
                     }
 
@@ -90,33 +93,40 @@ namespace CSharpGameDevFoundation
         //popualtes first and last row with ascii
         //populates the first and last column in each row with ascii
         //
+        /// <summary>
+        /// Sets the ascii characters of the border
+        /// </summary>
+        /// <param name="ascii"></param>
         public void BorderASCII(string ascii = "*")
         {
-            for (int i = XYGameWindowReference.GetUpperBound(0); i >= 0; i--) //sets the first and last rows to ascii border
+            for (int i = XYGameWindowReference.GetUpperBound(0); i > 0; i--) //sets the first and last rows to ascii border
             {
 
-                XYGameWindowReference[i, 0].ASCII(ascii); //Bottom
-                XYGameWindowReference[i, (Y - 1)].ASCII(ascii); //Top
+                XYGameWindowReference[i - 1, 0].ASCII(ascii); //Bottom
+                XYGameWindowReference[i - 1, (Width - 1)].ASCII(ascii); //Top
                
             }
             for (int i = XYGameWindowReference.GetUpperBound(1); i >=0; i--) //sets the first and last columns to ascii border
             {
                 XYGameWindowReference[0, i].ASCII(ascii); //Left Side
-                XYGameWindowReference[(X - 1), i].ASCII(ascii); //Right Side
+                XYGameWindowReference[(Height - 1), i].ASCII(ascii); //Right Side
             }
 
         }
         public void DisplayWindow()
         {
-            foreach (Border b in XYGameWindowReference)
+
+            foreach (Border bo in XYGameWindowReference)
             {
-                int i = 1;
-                
-                while (i % 50 != 0)
+                if (bo.Y < Width / 2)
                 {
-                    Console.Write(b.Icon);
-                    i++;
+                    Console.Write(bo.Icon);
                 }
+                else
+                {
+                    Console.WriteLine(bo.Icon);
+                }
+                 
             }
         }
     }

@@ -7,14 +7,8 @@ namespace CSharpGameDevFoundation
         public int X { get; set; } = 50;
         public int Y { get; set; } = 50;
 
-        private string _icon = " ";
-        public string Icon
-        {
-            get
-            {
-                return _icon;
-            }
-        }
+
+        public string Icon { get; private set; } = " ";
         public Border(int x, int y)
         {
             X = x;
@@ -23,7 +17,7 @@ namespace CSharpGameDevFoundation
 
         public void ASCII(string ascii)
         {
-            _icon = ascii;
+            Icon = ascii;
         }
         
     }
