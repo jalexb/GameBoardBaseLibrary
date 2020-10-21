@@ -1,0 +1,13 @@
+C:\Users\Student\workspace\SideProjects\CSharpGameDevFoundation\CSharpGameDevFoundation\bin\Debug\netcoreapp3.1\CSharpGameDevFoundation.exe
+C:\Users\Student\workspace\SideProjects\CSharpGameDevFoundation\CSharpGameDevFoundation\bin\Debug\netcoreapp3.1\CSharpGameDevFoundation.deps.json
+C:\Users\Student\workspace\SideProjects\CSharpGameDevFoundation\CSharpGameDevFoundation\bin\Debug\netcoreapp3.1\CSharpGameDevFoundation.runtimeconfig.json
+C:\Users\Student\workspace\SideProjects\CSharpGameDevFoundation\CSharpGameDevFoundation\bin\Debug\netcoreapp3.1\CSharpGameDevFoundation.runtimeconfig.dev.json
+C:\Users\Student\workspace\SideProjects\CSharpGameDevFoundation\CSharpGameDevFoundation\bin\Debug\netcoreapp3.1\CSharpGameDevFoundation.dll
+C:\Users\Student\workspace\SideProjects\CSharpGameDevFoundation\CSharpGameDevFoundation\bin\Debug\netcoreapp3.1\CSharpGameDevFoundation.pdb
+C:\Users\Student\workspace\SideProjects\CSharpGameDevFoundation\CSharpGameDevFoundation\obj\Debug\netcoreapp3.1\CSharpGameDevFoundation.csprojAssemblyReference.cache
+C:\Users\Student\workspace\SideProjects\CSharpGameDevFoundation\CSharpGameDevFoundation\obj\Debug\netcoreapp3.1\CSharpGameDevFoundation.AssemblyInfoInputs.cache
+C:\Users\Student\workspace\SideProjects\CSharpGameDevFoundation\CSharpGameDevFoundation\obj\Debug\netcoreapp3.1\CSharpGameDevFoundation.AssemblyInfo.cs
+C:\Users\Student\workspace\SideProjects\CSharpGameDevFoundation\CSharpGameDevFoundation\obj\Debug\netcoreapp3.1\CSharpGameDevFoundation.csproj.CoreCompileInputs.cache
+C:\Users\Student\workspace\SideProjects\CSharpGameDevFoundation\CSharpGameDevFoundation\obj\Debug\netcoreapp3.1\CSharpGameDevFoundation.dll
+C:\Users\Student\workspace\SideProjects\CSharpGameDevFoundation\CSharpGameDevFoundation\obj\Debug\netcoreapp3.1\CSharpGameDevFoundation.pdb
+C:\Users\Student\workspace\SideProjects\CSharpGameDevFoundation\CSharpGameDevFoundation\obj\Debug\netcoreapp3.1\CSharpGameDevFoundation.genruntimeconfig.cache
