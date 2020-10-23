@@ -1,4 +1,4 @@
-# GameBoardBaseLibrary
+# Game Engine Library
 A base library for building a game in CLI using C#
 
 # Link to Trello Board (Currently Private)
