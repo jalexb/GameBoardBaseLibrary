@@ -1,7 +1,7 @@
 # Game Engine Library
 A base library for building a game in CLI using C#
 
-# Link to Trello Board (Currently Private)
+# Link to Trello Board
 https://trello.com/b/6DSnlqeA/user-story-mapping-template
 
 
