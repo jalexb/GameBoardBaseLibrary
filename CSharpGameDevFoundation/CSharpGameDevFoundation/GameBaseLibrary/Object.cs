@@ -2,14 +2,13 @@
 
 namespace CSharpGameDevFoundation
 {
-    class Border
+    public class Object
     {
         public int X { get; set; } = 50;
         public int Y { get; set; } = 50;
-
-
         public string Icon { get; private set; } = " ";
-        public Border(int x, int y)
+
+        public Object(int x, int y)
         {
             X = x;
             Y = y;

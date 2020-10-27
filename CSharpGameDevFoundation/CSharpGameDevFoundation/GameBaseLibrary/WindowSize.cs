@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 
 namespace CSharpGameDevFoundation
@@ -10,9 +11,15 @@ namespace CSharpGameDevFoundation
         private int Height { get; set; } = 15;
         private int Width { get; set; } = 50;
 
+        public Dictionary<int[], Object> GameBoard = new Dictionary<int[], Object>();
         public Border[,] XYGameWindowReference { get; private set; } //-25, -25 ==> 0,0  25, 25 ==> 49, 49
 
-          
+        private int xPositives = Height / 2;
+        private int xNegatives = -(Height / 2);
+
+        int yPositives = Width / 2;
+        int yNegatives = -(Width / 2);
+
 
 
         /// <summary>
@@ -40,44 +47,41 @@ namespace CSharpGameDevFoundation
         {
             
             Console.SetWindowSize(Width, Height);
-            
-            XYGameWindowReference = new Border[Height, Width];
-            int xPositives = Height / 2;
-            int xNegatives = -(Height / 2);
 
-            int yPositives = Width / 2;
-            int yNegatives = -(Width / 2);
+            
 
             for( int i = 0; i <= XYGameWindowReference.GetUpperBound(0); i++ ) // i == x
             {
                 for ( int j = 0; j <= XYGameWindowReference.GetUpperBound(1); j++ ) // j == y
                 {
-                    Border position;
                     if (i < yPositives)
                     {
                         if(j < xPositives)
                         {
-                            position = new Border(xNegatives + i, yNegatives + j);
-                            
+                            int[] positionXandY = { xNegatives + i, yNegatives + j };
+                            GameBoard[positionXandY] = null;
                         }
                         else
                         {
-                            position = new Border(xNegatives + i, yNegatives + j);
+                            int[] positionXandY = { xNegatives + i, yNegatives + j };
+                            GameBoard[positionXandY] = null;
                         }
                     }
                     else
                     {
                         if (j > xPositives)
                         {
-                            position = new Border(xNegatives + i, yNegatives + j);
+                            int[] positionXandY = { xNegatives + i, yNegatives + j };
+                            GameBoard[positionXandY] = null;
                         }
                         else
                         {
-                            position = new Border(xNegatives + i, yNegatives + j);
+                            int[] positionXandY = { xNegatives + i, yNegatives + j };
+                            GameBoard[positionXandY] = null;
                         }
                     }
 
-                    XYGameWindowReference[i, j] = position;
+                    
                 }
                 
             }
@@ -93,6 +97,7 @@ namespace CSharpGameDevFoundation
         {
             for (int i = XYGameWindowReference.GetUpperBound(0); i > 0; i--) //sets the first and last rows to ascii border
             {
+                GameBoard[]
 
                 XYGameWindowReference[i - 1, 0].ASCII(ascii); //Bottom
                 XYGameWindowReference[i - 1, (Width - 1)].ASCII(ascii); //Top
