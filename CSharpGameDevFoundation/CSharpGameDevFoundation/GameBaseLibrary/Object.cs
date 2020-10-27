@@ -8,16 +8,11 @@ namespace CSharpGameDevFoundation
         public int Y { get; set; } = 50;
         public string Icon { get; private set; } = " ";
 
-        public Object(int x, int y)
+        public Object(int x, int y, string ascii)
         {
             X = x;
             Y = y;
-        }
-
-        public void ASCII(string ascii)
-        {
             Icon = ascii;
         }
-        
     }
 }
