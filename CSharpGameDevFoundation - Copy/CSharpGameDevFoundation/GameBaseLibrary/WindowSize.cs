@@ -4,14 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
-using System.Threading;
 
 namespace CSharpGameDevFoundation
 {
     class Window
     {
-        private int Height { get; set; } = 35; //height boundary
-        private int Width { get; set; } = 75; //width boundary
+        private int Height { get; set; } = 15; //height boundary
+        private int Width { get; set; } = 50; //width boundary
 
         private int MinX { get { return -Width / 2; } }
         private int MaxX { get { return Width / 2; } }
@@ -19,7 +18,7 @@ namespace CSharpGameDevFoundation
         private int MaxY { get { return Height / 2; } }
 
         Dictionary<string, Object> GameBoard { get; set; } = new Dictionary<string, Object>();
-        private List<string> RowArray { get; set; } = new List<string>();
+
         /// <summary>
         /// Set the Height and Width of the window, and the ascii border
         /// </summary>
@@ -32,12 +31,12 @@ namespace CSharpGameDevFoundation
             Width = width;
             InitGameBoard();
             BuildBorder(ascii);
-            InitWindow(MinY);
+            DisplayWindow(MinY);
         }
 
         private void InitGameBoard()
         {
-            Console.SetWindowSize(Width + 5, Height + 5);
+            Console.SetWindowSize(Width, Height);
 
             for (int j = MinX; j <= MaxX; j++)
             {
@@ -75,9 +74,8 @@ namespace CSharpGameDevFoundation
         /// <summary>
         /// Displays the window
         /// </summary>
-        public void InitWindow(int minY)
+        public void DisplayWindow(int minY)
         {
-            
             string row = null;
             int nextRow = minY;
 
@@ -96,42 +94,9 @@ namespace CSharpGameDevFoundation
             if (nextRow < MaxY)
             {
                 nextRow = nextRow + 1;
-                InitWindow(nextRow);
+                DisplayWindow(nextRow);
             }
-            RowArray.Add(row);
-        }
-
-        public void AddObject(Object @object)
-        {
-            GameBoard[$"{@object.X},{@object.Y}"] = @object;
-            RowArray.Clear();
-            InitWindow(MinY);
-        }
-
-        public void PrintWindow(int count = -1)
-        {
-            int countInit = count + 1;
-            string gameWindow = "";
-
-
-            if(countInit < RowArray.Count)
-            {
-                gameWindow += RowArray[countInit];
-                PrintWindow(countInit);
-                
-            }
-            Console.WriteLine(gameWindow);
-        }
-
-
-        public void Refresh()
-        {
-            while(0==0)
-            {
-                Thread.Sleep(500);
-                Console.Clear();
-                PrintWindow();
-            }
+            Console.WriteLine(row);
         }
     }
 }

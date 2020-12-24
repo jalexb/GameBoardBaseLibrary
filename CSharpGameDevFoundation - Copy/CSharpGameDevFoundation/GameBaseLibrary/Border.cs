@@ -8,11 +8,8 @@ namespace CSharpGameDevFoundation.GameBaseLibrary
     public class Border : Object
     {
         public Border(int x, int y, string ascii) : base(x, y, ascii)
-        {}
-
-        /*public bool Collided()
         {
 
-        }*/
+        }
     }
 }
